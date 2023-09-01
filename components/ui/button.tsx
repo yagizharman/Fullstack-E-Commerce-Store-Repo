@@ -4,7 +4,7 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, children, disabled, type = "button" }, ref) => {
+  ({ className, children, disabled, type = "button", ...props }, ref) => {
     return (
       <button
         className={cn(
@@ -23,6 +23,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           className
         )}
         ref={ref}
+        {...props}
       >
         {children}
       </button>
