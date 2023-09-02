@@ -2,14 +2,14 @@
 
 import { Image as ImageType } from "@/types";
 import { Tab } from "@headlessui/react";
-import GalleryTab from "./gallery-tab";
+import GalleryTab from "@/components/gallery/gallery-tab";
 import Image from "next/image";
 
 interface GalleryProps {
   images: ImageType[];
 }
 
-const Gallery: React.FC<GalleryProps> = ({ images }) => {
+const Gallery: React.FC<GalleryProps> = ({ images = [] }) => {
   return (
     <Tab.Group as="div" className="flex flex-col-reverse">
       <div className="mx-auto mt-6 hidden w-full max-w-2xl sm:block lg:max-w-none">
@@ -21,7 +21,7 @@ const Gallery: React.FC<GalleryProps> = ({ images }) => {
       </div>
       <Tab.Panels className="aspect-square w-full">
         {images.map((item) => (
-          <Tab.Panel>
+          <Tab.Panel key={item.id}>
             <div className="aspect-square relative h-full w-full sm:rounded-lg overflow-hidden">
               <Image
                 fill
