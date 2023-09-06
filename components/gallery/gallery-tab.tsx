@@ -25,7 +25,9 @@ const GalleryTab: React.FC<GalleryTabProps> = ({ image }) => {
               `
                   absolute inset-0 rounded-md ring-2 ring-offset-2
                   `,
-              selected ? `ring-black` : `ring-transparent`
+              selected
+                ? `ring-black dark:ring-white`
+                : `ring-transparent dark:ring-red-800`
             )}
           />
         </div>
